@@ -53,7 +53,7 @@ const StartGameScreen = (props) => {
         <View>
           <NumberContainer>{selectedNumber}</NumberContainer>
           <Button
-            title="START GAME"
+            title='START GAME'
             onPress={() => props.onStartGame(selectedNumber)}
           />
         </View>
@@ -74,9 +74,9 @@ const StartGameScreen = (props) => {
           <Input
             style={styles.input}
             blurOnSubmit
-            autoCapitalize="none"
+            autoCapitalize='none'
             autoCorrect={false}
-            keyboardType="number-pad"
+            keyboardType='number-pad'
             maxLength={2}
             onChangeText={numberInputHandler}
             value={enteredValue}
@@ -84,14 +84,14 @@ const StartGameScreen = (props) => {
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
               <Button
-                title="Reset"
+                title='Reset'
                 onPress={resetInputHandler}
                 color={Colors.accent}
               />
             </View>
             <View style={styles.button}>
               <Button
-                title="Confirm"
+                title='Confirm'
                 onPress={confirmInputHandler}
                 color={Colors.primary}
               />
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
+    fontFamily: 'open-sans-bold',
   },
   inputContainer: {
     width: 300,
