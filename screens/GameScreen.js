@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
-
-import NumberContainer from '../components/NumberContainer';
+import React, { useEffect, useRef, useState } from 'react';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import Card from '../components/Card';
+import MainButton from '../components/MainButton';
+import NumberContainer from '../components/NumberContainer';
 import DefaultStyles from '../constants/default-styles';
+import { Ionicons } from '@expo/vector-icons';
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -36,7 +37,7 @@ const GameScreen = (props) => {
       (direction === 'lower' && currentGuess < props.userChoice) ||
       (direction === 'greater' && currentGuess > props.userChoice)
     ) {
-      Alert.alert("Dont't lie!, You know taht this is wrong...", [
+      Alert.alert("Dont't lie!", 'You know taht this is wrong...', [
         { text: 'Sorry', style: 'cancel' },
       ]);
       return;
@@ -60,11 +61,12 @@ const GameScreen = (props) => {
       <Text style={DefaultStyles.title}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button title='LOWER' onPress={nextGuessHandler.bind(this, 'lower')} />
-        <Button
-          title='GREATER'
-          onPress={nextGuessHandler.bind(this, 'greater')}
-        />
+        <MainButton onPress={nextGuessHandler.bind(this, 'lower')}>
+          <Ionicons name='md-remove' size={24} color='white' />
+        </MainButton>
+        <MainButton onPress={nextGuessHandler.bind(this, 'greater')}>
+          <Ionicons name='md-add' size={24} color='white' />
+        </MainButton>
       </Card>
     </View>
   );
@@ -80,8 +82,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 20,
-    width: 300,
-    maxWidth: '80%',
+    width: 400,
+    maxWidth: '90%',
   },
 });
 
