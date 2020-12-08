@@ -81,31 +81,33 @@ const GameScreen = (props) => {
   }
 
   return (
-    <View style={styles.screen}>
-      <Text style={DefaultStyles.title}>Opponent's Guess</Text>
-      <NumberContainer>{currentGuess}</NumberContainer>
-      <Card style={styles.buttonContainer}>
-        <MainButton onPress={nextGuessHandler.bind(this, 'lower')}>
-          <Ionicons name='md-remove' size={24} color='white' />
-        </MainButton>
-        <MainButton onPress={nextGuessHandler.bind(this, 'greater')}>
-          <Ionicons name='md-add' size={24} color='white' />
-        </MainButton>
-      </Card>
-      <View style={styles.listContainer}>
-        {/* <ScrollView contentContainerStyle={styles.list}>
+    <ScrollView>
+      <View style={styles.screen}>
+        <Text style={DefaultStyles.title}>Opponent's Guess</Text>
+        <NumberContainer>{currentGuess}</NumberContainer>
+        <Card style={styles.buttonContainer}>
+          <MainButton onPress={nextGuessHandler.bind(this, 'lower')}>
+            <Ionicons name='md-remove' size={24} color='white' />
+          </MainButton>
+          <MainButton onPress={nextGuessHandler.bind(this, 'greater')}>
+            <Ionicons name='md-add' size={24} color='white' />
+          </MainButton>
+        </Card>
+        <View style={styles.listContainer}>
+          {/* <ScrollView contentContainerStyle={styles.list}>
           {pastGuesses.map((guess, index) =>
             renderListItem(guess, pastGuesses.length - index)
           )}
         </ScrollView> */}
-        <FlatList
-          keyExtractor={(item) => item}
-          data={pastGuesses}
-          renderItem={renderListItem.bind(this, pastGuesses.length)}
-          contentContainerStyle={styles.list}
-        />
+          <FlatList
+            keyExtractor={(item) => item}
+            data={pastGuesses}
+            renderItem={renderListItem.bind(this, pastGuesses.length)}
+            contentContainerStyle={styles.list}
+          />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
