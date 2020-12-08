@@ -7,6 +7,7 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
+
 import BodyText from '../components/BodyText';
 import MainButton from '../components/MainButton';
 import TitleText from '../components/TitleText';
